@@ -39,7 +39,8 @@ function visibilityNumber() {
 //     3.1 - chiedo all'utente un numero 5 volte di seguito °°°°°CONTENUTO HTML°°°°°
 //     3.2 - inserisco ogni numero che mi da l'utente in un array utente (numeriUtente)
 
-let numberUser = setTimeout(sayNumberUser, 20000);
+setTimeout(sayNumberUser, 11000);
+let numberUser = sayNumberUser();
 
 function sayNumberUser() {
     const numberArrayUser = [];   
