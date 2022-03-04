@@ -14,6 +14,12 @@ const displayWinningNumbers = document.getElementById('result');
 
 // 1 - Visualizzare in pagina 5 numeri casuali. (for per creare 5 numeri) 
 //     1.1 - creare i numeri casuali.
+
+for (let numberCicle = 1; numberCicle <= 5; numberCicle++) {
+    let numberRandom = Math.floor(Math.random() * (100 - 0) + 0);
+    console.log(numberRandom) // controllo ok
+}
+
 //     1.2 - creo un array dove inserire i numeri casuali (anche doppi) (numeriCasuali)
 //     1.3 - visualizzare i numeriCasuali per 30 secondi. °°°°°CONTENUTO HTML°°°°°
 // 2 - Da lì parte un timer di 30 secondi. alla fine del timer nascondo i numeri prensenti in numeriCasuali.
