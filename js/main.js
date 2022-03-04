@@ -39,11 +39,13 @@ function visibilityNumber() {
 //     3.1 - chiedo all'utente un numero 5 volte di seguito °°°°°CONTENUTO HTML°°°°°
 //     3.2 - inserisco ogni numero che mi da l'utente in un array utente (numeriUtente)
 
-setTimeout(sayNumberUser, 11000);
-let numberUser = sayNumberUser();
+let numberUser;
+setTimeout(function() {
+    let numberUser = sayNumberUser();
+  }, 11000);
+
 
 function sayNumberUser() {
-    
     const numberArrayUser = [];   
     for (let cicloDiInput = 0; cicloDiInput < 5; cicloDiInput++) {
         let inputUser = parseInt(prompt('Indicami un numero che ricordi?'));
@@ -51,13 +53,23 @@ function sayNumberUser() {
     }
     return numberArrayUser;
 }
-    // 4- il software dice quanti e quali dei numeri da indovinare sono stati individuati.
-console.log(numberRandomPC);
-console.log(numberUser);
+
+// 4- il software dice quanti e quali dei numeri da indovinare sono stati individuati.
+for (let cicloDiControllo = numberRandomPC[0]; cicloDiControllo < numberRandomPC.length; cicloDiControllo++) {
+    let controlloNumero = numberRandomPC[cicloDiControllo];
+    console.log(controlloNumero);
+    if (cicloDicontrollo(numberRandomPC[i]) = numberUser[i]) {
+        displayWinningNumbers.innerHTML = 'Hai vinto';
+    } else {
+        displayWinningNumbers.innerHTML = 'Hai perso';
+    }
+    
+}
 
 
 
 //     4.1 - ogni numero dell array numeriUtente viene controllato all'interno di numeriCasuali
+
 //     4.2 - creo un array 'vittoria'
 //     4.3 - i numeri uguali di numeriCasuali e numeriUtente vengono inseriti in 'vittoria'
 //     4.4 - viene mostrato il contenuto dell'array 'vittoria'. °°°°°CONTENUTO HTML°°°°°
