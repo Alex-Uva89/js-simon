@@ -10,19 +10,28 @@
 
 const displayNumberRandom = document.getElementById('card_number_random');
 const displayWinningNumbers = document.getElementById('result');
+const btnPlay = document.getElementById('play');
 
+// 0 - Si parte da schermata play
+//     0.1 - si clicca play per far partire il gioco 
 
-// 1 - Visualizzare in pagina 5 numeri casuali. (for per creare 5 numeri) 
-//     1.1 - creare i numeri casuali.
+// :::::::::::::: 1 - Visualizzare in pagina 5 numeri casuali. (for per creare 5 numeri)::::::::::
 
-for (let numberCicle = 1; numberCicle <= 5; numberCicle++) {
-    let numberRandom = Math.floor(Math.random() * (100 - 0) + 0);
-    console.log(numberRandom) // controllo ok
+const numberRandomPC = []; //array che contiene i numeri casuali
+
+for (let numberCicle = 1; numberCicle <= 5; numberCicle++) {            //  ciclo per creare i numeri casuali.
+    let selectNumberRandom = Math.floor(Math.random() * (100 - 0) + 0);
+    numberRandomPC.push(selectNumberRandom)
 }
 
-//     1.2 - creo un array dove inserire i numeri casuali (anche doppi) (numeriCasuali)
-//     1.3 - visualizzare i numeriCasuali per 30 secondi. °°°°°CONTENUTO HTML°°°°°
-// 2 - Da lì parte un timer di 30 secondi. alla fine del timer nascondo i numeri prensenti in numeriCasuali.
+displayNumberRandom.innerHTML = numberRandomPC; //mostro i numeri a display
+// ::::::::::::::::: 2 - Da lì parte un timer di 30 secondi, alla fine spariscono. ::::::::::::::::
+const seeNumberAtUser = setTimeout(visibilityNumber, 10000); //attivo un timer di 10 sec per memorizzare i numeri
+
+function visibilityNumber() {
+    displayNumberRandom.innerHTML = ''; // funzione per cancellare i numeri visibili
+}
+
 // 3- chiedi all'utente (con dei prompt) di inserirli in ORDINE, uno alla volta. (for per chiedere 5 numeri)
 //     3.1 - chiedo all'utente un numero 5 volte di seguito °°°°°CONTENUTO HTML°°°°°
 //     3.2 - inserisco ogni numero che mi da l'utente in un array utente (numeriUtente)
