@@ -19,23 +19,38 @@ const btnPlay = document.getElementById('play');
 
 const numberRandomPC = []; //array che contiene i numeri casuali
 
-for (let numberCicle = 1; numberCicle <= 5; numberCicle++) {            //  ciclo per creare i numeri casuali.
+for (let numberCicle = 0; numberCicle < 5; numberCicle++) {            //  ciclo per creare i numeri casuali.
     let selectNumberRandom = Math.floor(Math.random() * (100 - 0) + 0);
     numberRandomPC.push(selectNumberRandom)
 }
 
 displayNumberRandom.innerHTML = numberRandomPC; //mostro i numeri a display
+
+
 // ::::::::::::::::: 2 - Da lì parte un timer di 30 secondi, alla fine spariscono. ::::::::::::::::
 const seeNumberAtUser = setTimeout(visibilityNumber, 10000); //attivo un timer di 10 sec per memorizzare i numeri
+const startSayImputUser = setTimeout(sayNumberUser, 11000)
+
 
 function visibilityNumber() {
     displayNumberRandom.innerHTML = ''; // funzione per cancellare i numeri visibili
 }
 
-// 3- chiedi all'utente (con dei prompt) di inserirli in ORDINE, uno alla volta. (for per chiedere 5 numeri)
+//::::::::::: 3- chiedi all'utente (con dei prompt) di inserirli in ORDINE, uno alla volta.
 //     3.1 - chiedo all'utente un numero 5 volte di seguito °°°°°CONTENUTO HTML°°°°°
 //     3.2 - inserisco ogni numero che mi da l'utente in un array utente (numeriUtente)
+
+function sayNumberUser() {
+    const numberUser = [];   
+    for (let cicloDiInput = 0; cicloDiInput < 5; cicloDiInput++) {
+            let inputUser = parseInt(prompt('Indicami un numero che ricordi?'));
+            numberUser.push(inputUser);  
+        }
+}
 // 4- il software dice quanti e quali dei numeri da indovinare sono stati individuati.
+
+
+
 //     4.1 - ogni numero dell array numeriUtente viene controllato all'interno di numeriCasuali
 //     4.2 - creo un array 'vittoria'
 //     4.3 - i numeri uguali di numeriCasuali e numeriUtente vengono inseriti in 'vittoria'
