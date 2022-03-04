@@ -29,7 +29,6 @@ displayNumberRandom.innerHTML = numberRandomPC; //mostro i numeri a display
 
 // ::::::::::::::::: 2 - Da lì parte un timer di 30 secondi, alla fine spariscono. ::::::::::::::::
 const seeNumberAtUser = setTimeout(visibilityNumber, 10000); //attivo un timer di 10 sec per memorizzare i numeri
-const startSayImputUser = setTimeout(sayNumberUser, 12000)
 
 
 function visibilityNumber() {
@@ -40,17 +39,19 @@ function visibilityNumber() {
 //     3.1 - chiedo all'utente un numero 5 volte di seguito °°°°°CONTENUTO HTML°°°°°
 //     3.2 - inserisco ogni numero che mi da l'utente in un array utente (numeriUtente)
 
+let numberUser = setTimeout(sayNumberUser, 20000);
 
 function sayNumberUser() {
     const numberArrayUser = [];   
     for (let cicloDiInput = 0; cicloDiInput < 5; cicloDiInput++) {
-            let inputUser = parseInt(prompt('Indicami un numero che ricordi?'));
-            numberUser.push(inputUser);  
+        let inputUser = parseInt(prompt('Indicami un numero che ricordi?'));
+        numberArrayUser.push(inputUser);  
     }
     return numberArrayUser;
 }
     // 4- il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 console.log(numberRandomPC);
+console.log(numberUser);
 
 
 
