@@ -43,6 +43,7 @@ setTimeout(sayNumberUser, 11000);
 let numberUser = sayNumberUser();
 
 function sayNumberUser() {
+    
     const numberArrayUser = [];   
     for (let cicloDiInput = 0; cicloDiInput < 5; cicloDiInput++) {
         let inputUser = parseInt(prompt('Indicami un numero che ricordi?'));
