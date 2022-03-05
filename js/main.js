@@ -64,28 +64,22 @@ function removeNumber () {
 //     3.3 - il software dice quanti e quali dei numeri da indovinare sono stati individuati.
 
 function askNumberAtUser() {
-    numberUser;
-    for(let i = 0; numberUser.length < numberPcRandom.length; i++) {
+    for(let i = 0; numberUser.length < numberPcRandom.length ; i++) { // creo ciclo per chiedere all'utente un numero di parole tanti quanti sono gli elementi dei numeri casuali
         let inputUser = parseInt(prompt('inserisci i numeri in sequenza:'))
-        if (numberUser.includes(inputUser)) {
-            inputUser = parseInt(prompt('Non puoi inserire numeri già inseriti'))
-        }
-        numberUser.push(inputUser)
     }
-    console.log(numberUser)
-    isWinner()
+    console.log(numberUser);
+    isWinner();
 }
 
 //::::::::::: 4 - ogni numero dell array numeriUtente viene controllato all'interno di numeriCasuali
 
 function isWinner() {
-    for(let i = 0; i <= numberUser.length; i++) {
+    for(let i = 0; i < numberUser.length; i++) {
         if (numberPcRandom[i] == numberUser[i]) {
             numberWinners.push(numberUser[i])
         }
     }
     displayWinningNumbers.innerHTML = 'Ottimo! Hai indovinato i numeri: ' + numberWinners;
-    return numberWinners;
 }
 
 //::::::::::: 5 - vengono dichiarati i numeri indovinati
