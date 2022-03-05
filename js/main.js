@@ -35,7 +35,6 @@ function generateNumberPcRandom(num) { //creo funzione per
     numberPcRandom = [];
     for (let i = 0; numberPcRandom.length < num; i++) {
         let random = calcRandomNumber(1, 100);
-
         if (!numberPcRandom.includes(random)) {
             numberPcRandom.push(random);
         }
@@ -52,7 +51,7 @@ function printNumber() { // creo funzione per la stampa dei numeri
 
 function removeNumber() {
     displayNumberRandom.innerHTML = ''; //la funzione parte riempiendo l'htm con uno spazio vuoto
-    clearInterval(removeNumberTimer); //questa funzione essendo interval necessita di clear
+    clearInterval(timerRemove); //questa funzione essendo interval necessita di clear
     setTimeout(askNumberAtUser, askNumberPromptTimer); // creo il timer per far partire la richiesta dei numeri e insieme li controlla
 }
 
