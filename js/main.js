@@ -12,59 +12,61 @@ const displayNumberRandom = document.getElementById('card_number_random');
 const displayWinningNumbers = document.getElementById('result');
 const btnPlay = document.getElementById('play');
 
-// 0 - Si parte da schermata play
-//     0.1 - si clicca play per far partire il gioco 
+let numberPcRandom; // creo array da riempire per i numeri pc casuali
+let numberUse; // creo array da riempire con i numeri del prompt dati dall'user 
+let numberWinners; // creo array da riempire con i numeri dati dalla funzione di controllo
+
+let removeNumberTimer = 30000; // inserisco variabile di tempo per far sparire i numeri
+let askNumberPromptTimer = 1000; // inserisco variabile per far partire il prompt
+
+
+
 
 // :::::::::::::: 1 - Visualizzare in pagina 5 numeri casuali. (for per creare 5 numeri)::::::::::
 
-const numberRandomPC = []; //array che contiene i numeri casuali
+generateNumberPcRandom(5);
+console.log(numberPcRandom);
 
-for (let numberCicle = 0; numberCicle < 5; numberCicle++) {            //  ciclo per creare i numeri casuali.
-    let selectNumberRandom = Math.floor(Math.random() * (100 - 0) + 0);
-    numberRandomPC.push(selectNumberRandom)
+
+function calcRandomNumber(min, max) { // creo funzione per creare numeri randomici
+    return Math.floor(Math.random() * (max - min) ) + min;
 }
 
-displayNumberRandom.innerHTML = numberRandomPC; //mostro i numeri a display
+function generateNumberPcRandom(num) { //creo funzione per 
+    numberPcRandom = [];
+    for (let i = 0; numberPcRandom.length < num; i++) {
+        let random = calcRandomNumber(1, 100);
+
+        if (!numberPcRandom.includes(random)) {
+            numberPcRandom.push(random);
+        }
+    }
+    return numberPcRandom;
+}
+
+printNumber(); // inserisco il comando che fa attivare la funzione della stampa numeri;
+
+function printNumber() { // creo funzione per la stampa dei numeri
+    numeri.innerHTML = `<h2 class="number">randomNumber</h2>`;
+}
 
 
 // ::::::::::::::::: 2 - Da lì parte un timer di 30 secondi, alla fine spariscono. ::::::::::::::::
-const seeNumberAtUser = setTimeout(visibilityNumber, 10000); //attivo un timer di 10 sec per memorizzare i numeri
+let timerRemove = setInterval(removeNumber, removeNumberTimer); //creo timer per far rimuovere i numeri con all'interno il timer per far partire il prompt
 
-
-function visibilityNumber() {
-    displayNumberRandom.innerHTML = ''; // funzione per cancellare i numeri visibili
+function removeNumber () {
+    displayNumberRandom.innerHTML = '';
+    clearInterval(removeNumberTimer);
+    setTimeout(askNumberAtUser, askNumberPromptTimer); // creo il timer per far partire la richiesta dei numeri
 }
 
 //::::::::::: 3- chiedi all'utente (con dei prompt) di inserirli in ORDINE, uno alla volta.
 //     3.1 - chiedo all'utente un numero 5 volte di seguito °°°°°CONTENUTO HTML°°°°°
 //     3.2 - inserisco ogni numero che mi da l'utente in un array utente (numeriUtente)
 
-let numberUser;
-setTimeout(function() {
-    let numberUser = sayNumberUser();
-  }, 11000);
 
-
-function sayNumberUser() {
-    const numberArrayUser = [];   
-    for (let cicloDiInput = 0; cicloDiInput < 5; cicloDiInput++) {
-        let inputUser = parseInt(prompt('Indicami un numero che ricordi?'));
-        numberArrayUser.push(inputUser);  
-    }
-    return numberArrayUser;
-}
 
 // 4- il software dice quanti e quali dei numeri da indovinare sono stati individuati.
-for (let cicloDiControllo = numberRandomPC[0]; cicloDiControllo < numberRandomPC.length; cicloDiControllo++) {
-    let controlloNumero = numberRandomPC[cicloDiControllo];
-    console.log(controlloNumero);
-    if (cicloDicontrollo(numberRandomPC[i]) = numberUser[i]) {
-        displayWinningNumbers.innerHTML = 'Hai vinto';
-    } else {
-        displayWinningNumbers.innerHTML = 'Hai perso';
-    }
-    
-}
 
 
 
