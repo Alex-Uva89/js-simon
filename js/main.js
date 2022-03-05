@@ -16,14 +16,13 @@ const btnPlay = document.getElementById('play');
 let numberPcRandom = []; // creo array da riempire per i numeri pc casuali
 let numberUser = []; // creo array da riempire con i numeri del prompt dati dall'user 
 let numberWinners = []; // creo array da riempire con i numeri dati dalla funzione di controllo
-
-let removeNumberTimer = 5000; // inserisco variabile di tempo per far sparire i numeri
+let removeNumberTimer = 2000; // inserisco variabile di tempo per far sparire i numeri
 let askNumberPromptTimer = 1000; // inserisco variabile per far partire il prompt
 
 // :::::::::::::: 1 - Visualizzare in pagina 5 numeri casuali. (for per creare 5 numeri)::::::::::
 
 generateNumberPcRandom(5);
-console.log(numberPcRandom);
+console.log(numberPcRandom)
 printNumber(); // inserisco il comando che fa attivare la funzione della stampa numeri;
 let timerRemove = setInterval(removeNumber, removeNumberTimer); //creo timer per far rimuovere i numeri con all'interno il timer per far partire il prompt
 
@@ -41,7 +40,6 @@ function generateNumberPcRandom(num) { //creo funzione per
             numberPcRandom.push(random);
         }
     }
-    return numberPcRandom;
 }
 
 
@@ -52,7 +50,7 @@ function printNumber() { // creo funzione per la stampa dei numeri
 
 // ::::::::::::::::: 2 - Da lì parte un timer di 30 secondi, alla fine spariscono. ::::::::::::::::
 
-function removeNumber () {
+function removeNumber() {
     displayNumberRandom.innerHTML = ''; //la funzione parte riempiendo l'htm con uno spazio vuoto
     clearInterval(removeNumberTimer); //questa funzione essendo interval necessita di clear
     setTimeout(askNumberAtUser, askNumberPromptTimer); // creo il timer per far partire la richiesta dei numeri e insieme li controlla
@@ -65,7 +63,7 @@ function removeNumber () {
 
 function askNumberAtUser() {
     for(let i = 0; numberUser.length < numberPcRandom.length ; i++) { // creo ciclo per chiedere all'utente un numero di parole tanti quanti sono gli elementi dei numeri casuali
-        let inputUser = parseInt(prompt('inserisci i numeri in sequenza:'))
+        let inputUser = parseInt(prompt('inserisci i numeri in sequenza:'));
         numberUser.push(inputUser);  
     }
     console.log(numberUser);
@@ -77,7 +75,7 @@ function askNumberAtUser() {
 function isWinner() {
     for(let i = 0; i < numberUser.length; i++) {
         if (numberPcRandom[i] == numberUser[i]) {
-            numberWinners.push(numberUser[i])
+            numberWinners.push(numberUser[i]);
         }
     }
     displayWinningNumbers.innerHTML = 'Ottimo! Hai indovinato i numeri: ' + numberWinners;
