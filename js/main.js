@@ -66,6 +66,7 @@ function removeNumber () {
 function askNumberAtUser() {
     for(let i = 0; numberUser.length < numberPcRandom.length ; i++) { // creo ciclo per chiedere all'utente un numero di parole tanti quanti sono gli elementi dei numeri casuali
         let inputUser = parseInt(prompt('inserisci i numeri in sequenza:'))
+        numberUser.push(inputUser);  
     }
     console.log(numberUser);
     isWinner();
