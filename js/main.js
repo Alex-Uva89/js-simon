@@ -57,7 +57,7 @@ let timerRemove = setInterval(removeNumber, removeNumberTimer); //creo timer per
 function removeNumber () {
     displayNumberRandom.innerHTML = '';
     clearInterval(removeNumberTimer);
-    setTimeout(askNumberAtUser, askNumberPromptTimer); // creo il timer per far partire la richiesta dei numeri
+    setTimeout(askNumberAtUser, askNumberPromptTimer); // creo il timer per far partire la richiesta dei numeri e insieme li controlla
 }
 
 //::::::::::: 3- chiedi all'utente (con dei prompt) di inserirli in ORDINE, uno alla volta.
